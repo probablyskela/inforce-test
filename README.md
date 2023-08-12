@@ -17,3 +17,10 @@ pip install -r requirements.txt
 ```sh
 python manage.py runserver 0.0.0.0:8000
 ```
+
+## Setup (docker containers)
+
+### Run docker compose
+```sh
+docker compose up --build -d
+```
