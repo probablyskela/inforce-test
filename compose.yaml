@@ -1,0 +1,41 @@
+services:
+  server:
+    build: .
+    volumes:
+      - ./:/code
+    depends_on:
+      - postgres
+    env_file:
+      - .env
+    command: python manage.py runserver ${HOST}:${PORT}
+    ports:
+      - ${PORT}:${PORT}
+  postgres:
+    image: postgres:15-alpine
+    volumes:
+      - db:/var/lib/postgresql/data
+    env_file:
+      - .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - ${POSTGRES_PORT}:${POSTGRES_PORT}
+  pgadmin:
+    image: dpage/pgadmin4
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    depends_on:
+      - postgres
+    env_file:
+      - .env
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+      PGADMIN_LISTEN_PORT: ${PGADMIN_PORT}
+    ports:
+      - ${PGADMIN_PORT}:${PGADMIN_PORT}
+volumes:
+  db:
+  pgadmin:
