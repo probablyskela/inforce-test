@@ -1,5 +1,10 @@
 # Inforce python task
 
+## Use flake8
+```sh
+flake8 inforce
+```
+
 ## Setup
 
 ### Create virtual environment
