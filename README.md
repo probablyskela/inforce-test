@@ -1,5 +1,7 @@
 # Inforce python task
 
+# [API reference](docs/README.md)
+
 ## Use flake8
 ```sh
 flake8 inforce
@@ -28,4 +30,18 @@ python manage.py runserver 0.0.0.0:8000
 ### Run docker compose
 ```sh
 docker compose up --build -d
+```
+
+
+## Run tests with
+
+```sh
+pytest
+```
+
+Or in docker containers
+
+```sh
+docker compose up --build -d
+docker compose exec server pytest
 ```
