@@ -1,5 +1,7 @@
 # Inforce python task
 
+# [API reference](docs/README.md)
+
 ## Use flake8
 ```sh
 flake8 inforce
