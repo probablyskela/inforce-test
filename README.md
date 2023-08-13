@@ -31,3 +31,17 @@ python manage.py runserver 0.0.0.0:8000
 ```sh
 docker compose up --build -d
 ```
+
+
+## Run tests with
+
+```sh
+pytest
+```
+
+Or in docker containers
+
+```sh
+docker compose up --build -d
+docker compose exec server pytest
+```
